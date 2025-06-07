@@ -1,14 +1,11 @@
 import React from 'react';
 
-class Page extends React.Component {
-  render(){
-    
+const Page: React.FC = () => {
   return (
     <div style={{ height: '300vh' }}>
+      {/* Add your content here */}
     </div>
   );
-  }
-}
+};
 
 export default Page;
-
