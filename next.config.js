@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // enables static export
-  // optionally set basePath or assetPrefix if hosting at a subpath
+  output: 'export',
 };
 
-export default nextConfig;
+module.exports = nextConfig;

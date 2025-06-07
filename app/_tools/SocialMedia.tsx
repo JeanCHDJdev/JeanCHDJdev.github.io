@@ -4,11 +4,11 @@ interface SocialMediaProps {
     style?: React.CSSProperties;
 }
 const images = {
-    "instagram" : './media/social/instagram-logo.png',
-    "twitter" : './media/social/twitter-logo.png',
-    "linkedin" : './media/social/linkedin-logo.png',
-    "youtube" : './media/social/youtube-logo.png',
-    "mail" : './media/social/mail-logo.png'
+    "instagram" : '/media/social/instagram-logo.png',
+    "twitter" : '/media/social/twitter-logo.png',
+    "linkedin" : '/media/social/linkedin-logo.png',
+    "youtube" : '/media/social/youtube-logo.png',
+    "mail" : '/media/social/mail-logo.png'
 }
 
 const SocialMedia: React.FC<SocialMediaProps> = ({ style }) => {

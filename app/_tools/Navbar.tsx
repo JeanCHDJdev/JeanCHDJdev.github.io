@@ -12,7 +12,7 @@ interface Tab {
 const Navbar: React.FC = () => {
     const [tabs, setTabs] = useState<Tab[]>([
         {
-            label: 'Informations',
+            label: 'Projects',
             options: ['Projets', 'Membres'],
             links: ['/Projets', '/Membres'],
             showMenu: false,
@@ -29,7 +29,6 @@ const Navbar: React.FC = () => {
             links: ['/Partenaires', '/Devenir-Partenaire'],
             showMenu: false,
         },
-        // Add more tabs here if needed
     ]);
 
     const timeoutRef = useRef<number | null>(null);
@@ -59,7 +58,7 @@ const Navbar: React.FC = () => {
     };
 
     const handleMouseEnter = (index: number) => {
-        clearTimeout(timeoutRef.current!); // Clear the timeout
+        clearTimeout(timeoutRef.current!);
         setTabs((prevTabs) => {
             const updatedTabs = prevTabs.map((tab, i) => ({
                 ...tab,
@@ -70,7 +69,7 @@ const Navbar: React.FC = () => {
     };
 
     const handleMouseLeave = () => {
-        clearTimeout(timeoutRef.current!); // Clear the timeout
+        clearTimeout(timeoutRef.current!);
         timeoutRef.current = window.setTimeout(() => {
             setTabs((prevTabs) => {
                 const updatedTabs = prevTabs.map((tab) => ({
@@ -117,9 +116,6 @@ const Navbar: React.FC = () => {
             zIndex: 100,
             }}>
             {/*CACS Home Logo*/}
-            <a href="/">
-                <img className='clickable-mini-images' src="../home_page/main_animations/cacs_animated_gif.gif" alt="Logo" style={{ width: '1.875rem', transform: 'scale(4)', marginRight: '1.5rem', marginLeft: '1rem' }} />
-            </a>
             {/*Menus*/}
             <ul style={{ display: 'flex', flexDirection: 'row', listStyleType: 'none', padding: '0rem', marginLeft: '1rem'}}>
                 {tabs.map((tab, index) => (
