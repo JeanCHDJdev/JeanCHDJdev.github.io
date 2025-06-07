@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Navbar from '../front/app/tools/global_layout/Navbar'
-import Footer from '../front/app/tools/global_layout/Footer'
+import Navbar from './_tools/Navbar'
+import Footer from './_tools/Footer'
+import React from 'react'
 
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Pôle Espace CentraleSupélec',
-  description: 'Le Pôle Espace de CentraleSupélec est une association étudiante qui a pour but de promouvoir l\'aérospatial au sein de l\'école. Nous réalisons des projets spatiaux, et organisons des évènements pour faire découvrir l\'aérospatial aux élèves de l\'école.',
+  title: 'Jean Choppin de Janvry',
+  description: 'Personal research and project portfolio of Jean Choppin de Janvry. Interested in cosmology, video game development, and broad science topics.',
 }
 
 export default function RootLayout({
