@@ -1,0 +1,73 @@
+.buttons {
+  border-radius: 0.3rem;
+  border-color: var(--white-cacs);
+  border-width: 0.3rem;
+  background: rgba(0,0,50,0.1);
+  color: var(--white-cacs);
+  font-size: 2rem; 
+  padding: 1rem 1.4rem; 
+  z-index: 10;
+} 
+.buttons:hover {
+  background: var(--white-cacs);
+  color: black;
+  cursor: pointer;
+  background-size: 100% 0%;
+  transition: background-size 1s ease-in-out;
+}
+
+.alt-buttons {
+  border-radius: 2rem;
+  border-color: var(--white-cacs);
+  border-width: 0.1rem;
+  background-color: rgb(0,0,50);;
+  color: var(--white-cacs);
+  font-size: 1rem; 
+  padding: 0.8rem 1.2rem; 
+  z-index: 10;
+} 
+.alt-buttons:hover {
+  background-color: var(--white-cacs);
+  color:black;
+  border-color: var(--darkblue-cacs);
+  cursor: pointer;
+  background-size: 100% 0%;
+  transition: background-size 1s ease-in-out;
+}
+
+.classic-dropdown {
+  border-radius: 1.5rem;
+  appearance: none;
+  border-color: var(--white-cacs);
+  border-width: 0.1rem;
+  background-color: rgb(0,0,50);;
+  color: var(--white-cacs);
+  font-size: 1.3rem; 
+  padding: 1rem 1.4rem;
+  margin-right: 1rem; 
+  z-index: 10;
+}
+
+.team-text {
+  position: 'absolute';
+  top: '100%';
+  background-color: 'white';
+  padding: '0.5rem';
+  border-radius: '0.2rem';
+  box-shadow: '0 0.1rem 0.2rem rgba(0, 0, 0, 0.1)';
+  display: 'flex';
+  flex-wrap: 'wrap';
+  z-index: 100;
+  filter:'1';
+}
+.alt-dropdown-menu {
+  border-radius: 0.5rem;
+  appearance: none;
+  background-color: rgba(0,0,50,0.5);
+  color: var(--white-cacs);
+  font-size: 1.3rem; 
+  margin-right: 0.1rem;
+  margin-top: 0.1rem;
+  padding: 0.2rem 0.2rem;
+  z-index: 10;
+}

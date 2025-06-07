@@ -1,3 +1,112 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import './_css/buttons.css';
+@import './_css/colors.css';
+@import './_css/images.css';
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 0, 0, 255;
+    --background-end-rgb: 255, 255, 255;
+    --white: #fff;
+    --gray: #ccc;
+    --navy: #263f6b;
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) 
+ {
+    :root
+    {
+        font-size: 14px; 
+    }
+ }
+@media (max-width: 1200px) 
+ {
+    :root
+    {
+        font-size: 12px; 
+    }
+ }
+ @media (max-width: 1000px) 
+ {
+    :root
+    {
+        font-size: 10px; 
+    }
+    .paragraph-content{
+      flex-direction: column;
+    }
+    .hide-mobile {
+      visibility: hidden;
+    }
+    .hide-mobile.small {
+      display: none;
+    }
+ }
+ @media (max-width: 700px) 
+ {
+    :root
+    {
+        font-size: 7px; 
+    }
+ }
+
+
+*,*::before,*::after {
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+  padding: unset;
+  margin: unset;
+}
+
+.list-navbar {
+  padding: 1rem;
+  transition: all linear 0.2s;
+  color: var(--gray-cacs);
+}
+.list-navbar:hover {
+  background: var(--darkblue-cacs-transparent);
+  cursor: pointer;
+  color: var(--white-cacs);
+  border-radius: 8px;
+  text-decoration: underline;
+  text-decoration-color: var(--lightblue-cacs);
+}
+
+.dropdown-menu {
+  transition: all 0.2s ease-in-out;
+  background: var(--darkblue-cacs-transparent);
+  box-shadow: 0rem 0.75rem 2.25rem 0rem rgba(82, 63, 105, 0.05);
+  transform-origin: top;
+  border-radius: 0.6rem;
+}
+
+.numbers {
+  font-size: 7rem;
+  font-weight: bold;
+  color: var(--lightblue-cacs);
+}
+
+.list-statistics{
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--navy-cacs);
+}
+.list-statistics.small{
+  font-size: 1.5rem;
+}
