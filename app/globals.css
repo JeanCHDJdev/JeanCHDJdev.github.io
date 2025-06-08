@@ -6,17 +6,20 @@
 @import './_css/colors.css';
 @import './_css/images.css';
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 0, 0, 255;
-    --background-end-rgb: 255, 255, 255;
+:root {
+    /* Global colors */
     --white: #fff;
-    --gray: #ccc;
-    --navy: #263f6b;
+    --gray: #ced7e0;
+    --lightblue: #9ccddc;
+    --space1: #010b19;
+    --space2: #021631;
+    --space3: #03214a;
+    --space4: #042c62;
+    --space5: #05377b;
+
     font-size: 16px;
-  }
 }
+
 @media (min-width: 1200px) 
  {
     :root
@@ -77,36 +80,25 @@ ul {
 .list-navbar {
   padding: 1rem;
   transition: all linear 0.2s;
-  color: var(--gray-cacs);
+  color: var(--gray);
 }
 .list-navbar:hover {
-  background: var(--darkblue-cacs-transparent);
+  background: var(--space2);
   cursor: pointer;
-  color: var(--white-cacs);
+  color: var(--white);
   border-radius: 8px;
   text-decoration: underline;
-  text-decoration-color: var(--lightblue-cacs);
+  text-decoration-color: var(--lightblue);
 }
 
 .dropdown-menu {
   transition: all 0.2s ease-in-out;
-  background: var(--darkblue-cacs-transparent);
-  box-shadow: 0rem 0.75rem 2.25rem 0rem rgba(82, 63, 105, 0.05);
+  background: var(--space2);
+  box-shadow: 0rem 0.75rem 2.25rem 0rem var(--space1);
   transform-origin: top;
   border-radius: 0.6rem;
 }
 
-.numbers {
-  font-size: 7rem;
-  font-weight: bold;
-  color: var(--lightblue-cacs);
-}
-
-.list-statistics{
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--navy-cacs);
-}
 .list-statistics.small{
   font-size: 1.5rem;
 }
