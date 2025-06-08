@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', height: '100%' }}>
         </div>
         <div style={{ flex: '2', textAlign: 'center' }}>
-          <p style={{ color: 'white', textAlign: 'center', marginBottom: '1rem' }}>Suivez-nous sur les réseaux sociaux: </p>
+          <p style={{ color: 'white', textAlign: 'center', marginBottom: '1rem' }}>Socials</p>
           <SocialMedia style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}/>
       </div>
     </footer>

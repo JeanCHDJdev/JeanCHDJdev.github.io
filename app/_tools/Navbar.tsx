@@ -1,143 +1,98 @@
 "use client";
-import React, { useState, useRef, useEffect } from 'react';
-import DropdownMenu from './Dropdown';
+import React, { useState, useRef, useEffect } from "react";
+import DropdownMenu from "./Dropdown";
+
+interface DropdownOption {
+  label: string;
+  link?: string;
+  subOptions?: DropdownOption[];
+}
 
 interface Tab {
-    label: string;
-    options: string[];
-    links: string[];
-    showMenu: boolean;
+  label: string;
+  options: DropdownOption[];
 }
 
 const Navbar: React.FC = () => {
-    const [tabs, setTabs] = useState<Tab[]>([
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [navbarBackgroundColor, setNavbarBackgroundColor] = useState("transparent");
+
+  const tabs: Tab[] = [
+    {
+      label: "Projects",
+      options: [
+        { label: "Projets", link: "/Projets" },
+        { label: "Membres", link: "/Membres" },
+      ],
+    },
+    {
+      label: "Experiments",
+      options: [
+        { label: "Formations", link: "/Formations" },
         {
-            label: 'Projects',
-            options: ['Projets', 'Membres'],
-            links: ['/Projets', '/Membres'],
-            showMenu: false,
+          label: "Hackathon",
+          subOptions: [
+            { label: "2024", link: "/Hackathon/2024" },
+            { label: "2023", link: "/Hackathon/2023" },
+          ],
         },
-        {
-            label: 'Rejoignez-nous!',
-            options: ['Formations', 'Hackathon'],
-            links: ['/Formations', '/Hackathon'],
-            showMenu: false,
-        },
-        {
-            label: 'Partenariats',
-            options: ['Nos Partenaires', 'Devenir Partenaire'],
-            links: ['/Partenaires', '/Devenir-Partenaire'],
-            showMenu: false,
-        },
-    ]);
+      ],
+    },
+    {
+      label: "Partenariats",
+      options: [
+        { label: "Nos Partenaires", link: "/Partenaires" },
+        { label: "Devenir Partenaire", link: "/Devenir-Partenaire" },
+      ],
+    },
+  ];
 
-    const timeoutRef = useRef<number | null>(null);
+  const handleMouseEnter = (index: number) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setActiveIndex(index);
+  };
 
-    const handleTabClick = (index: number) => {
-        setTabs((prevTabs) => {
-            const updatedTabs = prevTabs.map((tab, i) => ({
-                ...tab,
-                showMenu: i === index ? !tab.showMenu : false,
-            }));
-            return updatedTabs;
-        });
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveIndex(null);
+    }, 300);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setNavbarBackgroundColor(window.scrollY > 300 ? "var(--space3)" : "transparent");
     };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    const handleBlur: React.FocusEventHandler<HTMLLIElement> = (event) => {
-        const index = tabs.findIndex((tab) => event.currentTarget.contains(event.relatedTarget as Node));
-        if (index !== -1) {
-            clearTimeout(timeoutRef.current!); // Clear the timeout
-            timeoutRef.current = window.setTimeout(() => {
-                setTabs((prevTabs) => {
-                    const updatedTabs = [...prevTabs];
-                    updatedTabs[index] = { ...updatedTabs[index], showMenu: false };
-                    return updatedTabs;
-                });
-            }, 500);
-        }
-    };
-
-    const handleMouseEnter = (index: number) => {
-        clearTimeout(timeoutRef.current!);
-        setTabs((prevTabs) => {
-            const updatedTabs = prevTabs.map((tab, i) => ({
-                ...tab,
-                showMenu: i === index ? true : false,
-            }));
-            return updatedTabs;
-        });
-    };
-
-    const handleMouseLeave = () => {
-        clearTimeout(timeoutRef.current!);
-        timeoutRef.current = window.setTimeout(() => {
-            setTabs((prevTabs) => {
-                const updatedTabs = prevTabs.map((tab) => ({
-                    ...tab,
-                    showMenu: false,
-                }));
-                return updatedTabs;
-            });
-        }, 1000);
-    };
-    const [navbarBackgroundColor, setNavbarBackgroundColor] = useState<string>('transparent');
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollDistance = window.scrollY;
-            const scrollThreshold = '300rem'; 
-
-            if (scrollDistance > parseFloat(scrollThreshold)) {
-                setNavbarBackgroundColor('rgba(0, 0, 50, 0.6)');
-            } else {
-                setNavbarBackgroundColor('transparent');
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    return (
-        <nav style={{ 
-            display: 'flex', 
-            flexDirection: 'row', 
-            alignItems: 'center', 
-            backgroundColor: navbarBackgroundColor, 
-            padding: '0.5rem 1rem', 
-            position: 'fixed', 
-            top: 0, 
-            width: "100%",
-            height: 'auto',
-            transition: 'background-color 0.3s ease-in-out',
-            zIndex: 100,
-            }}>
-            {/*CACS Home Logo*/}
-            {/*Menus*/}
-            <ul style={{ display: 'flex', flexDirection: 'row', listStyleType: 'none', padding: '0rem', marginLeft: '1rem'}}>
-                {tabs.map((tab, index) => (
-                    <li  className='list-navbar' key={index} style={{ marginRight: '0.5rem' }} onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={() => handleMouseLeave()} onBlur={handleBlur} tabIndex={0}>
-                        <div onClick={() => handleTabClick(index)}>{tab.label}</div>
-                        {tab.showMenu && (
-                            <div style={{ position: 'absolute', top: '100%', marginLeft: '-0.5rem' }}>
-                                <DropdownMenu options={tab.options} links={tab.links} />
-                            </div>
-                        )}
-                    </li>
-                ))}
-            </ul>
-            <ul style={{ display: 'flex', flexDirection: 'row', listStyleType: 'none', padding: 0, marginRight: 'auto' }} onMouseEnter={() => handleMouseEnter(-1)}>
-                <li  className='list-navbar' style={{ marginRight: '2rem' }}>
-                    <a href="/Contact">Contact</a>
-                </li>
-            </ul>
-            {/*Social Media*/}
-            {/*<SocialMedia style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }} />*/}
-        </nav>
-    );
+  return (
+    <nav
+      className="fixed top-0 w-full z-50 transition-colors duration-300"
+      style={{ backgroundColor: navbarBackgroundColor }}
+    >
+      <div className="flex justify-between items-center px-8 py-2">
+        <ul className="flex gap-6">
+          {tabs.map((tab, index) => (
+            <li
+              key={index}
+              className="relative"
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="cursor-pointer text-white">{tab.label}</div>
+              {activeIndex === index && (
+                <div className="absolute top-full left-0">
+                  <DropdownMenu options={tab.options} />
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
