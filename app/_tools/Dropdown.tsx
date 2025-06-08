@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 
@@ -12,60 +13,56 @@ interface DropdownMenuProps {
 }
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({ options }) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleSubMenu = (index: number) => {
-    setOpenIndex((prev) => (prev === index ? null : index));
-  };
+  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
   return (
     <ul className="bg-space2 text-white shadow-lg border border-space4 rounded w-64 p-2">
-      {options.map((option, i) => (
-        <li key={i} className="px-2 py-1 text-sm">
-          <div className="flex justify-between items-center">
-            {option.link ? (
-              <Link
-                href={option.link}
-                className="hover:text-space5 transition-colors duration-200"
-              >
-                {option.label}
-              </Link>
-            ) : (
-              <button
-                onClick={() => toggleSubMenu(i)}
-                className="w-full text-left hover:text-space5 transition-colors duration-200"
-              >
-                {option.label}
-              </button>
-            )}
+      {options.map((option, i) => {
+        const isOpen = hoverIndex === i;
 
-            {option.subOptions && (
-              <span
-                className="cursor-pointer text-space5"
-                onClick={() => toggleSubMenu(i)}
-              >
-                {openIndex === i ? "▲" : "▼"}
-              </span>
-            )}
-          </div>
-
-          {option.subOptions && openIndex === i && (
-            <ul className="ml-4 mt-1 border-l border-space4 pl-3">
-              {option.subOptions.map((sub, j) => (
-                <li
-                  key={j}
-                  className="py-1 text-sm hover:text-space5 transition-colors duration-200"
+        return (
+          <li
+            key={i}
+            className="px-2 py-1 text-sm relative"
+            onMouseEnter={() => setHoverIndex(i)}
+            onMouseLeave={() => setHoverIndex(null)}
+          >
+            <div className="flex justify-between items-center">
+              {option.link ? (
+                <Link
+                  href={option.link}
+                  className="hover:text-space5 transition-colors duration-200"
                 >
-                  <Link href={sub.link || "#"}>{sub.label}</Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </li>
-      ))}
+                  {option.label}
+                </Link>
+              ) : (
+                <span className="text-white">{option.label}</span>
+              )}
+
+              {option.subOptions && (
+                <span className="text-space5 ml-2">
+                  {isOpen ? "▲" : "▼"}
+                </span>
+              )}
+            </div>
+
+            {option.subOptions && isOpen && (
+              <ul className="mt-2 bg-space3 border border-space4 rounded shadow-md">
+                {option.subOptions.map((sub, j) => (
+                  <li
+                    key={j}
+                    className="px-3 py-2 text-sm hover:text-space5 transition-colors duration-200"
+                  >
+                    <Link href={sub.link || "#"}>{sub.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        );
+      })}
     </ul>
   );
 };
 
 export default DropdownMenu;
-

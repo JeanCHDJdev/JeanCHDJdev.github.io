@@ -1,12 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import React from 'react'
 
 import Navbar from './_tools/Navbar'
 import Footer from './_tools/Footer'
 import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Jean Choppin de Janvry',

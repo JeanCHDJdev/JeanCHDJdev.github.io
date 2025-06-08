@@ -10,7 +10,8 @@ interface DropdownOption {
 
 interface Tab {
   label: string;
-  options: DropdownOption[];
+  link?: string;
+  options?: DropdownOption[];
 }
 
 const Navbar: React.FC = () => {
@@ -21,30 +22,73 @@ const Navbar: React.FC = () => {
   const tabs: Tab[] = [
     {
       label: "Projects",
+      link: "/projects",
       options: [
-        { label: "Projets", link: "/Projets" },
-        { label: "Membres", link: "/Membres" },
-      ],
-    },
-    {
-      label: "Experiments",
-      options: [
-        { label: "Formations", link: "/Formations" },
         {
-          label: "Hackathon",
+          label: "Rockets",
           subOptions: [
-            { label: "2024", link: "/Hackathon/2024" },
-            { label: "2023", link: "/Hackathon/2023" },
+            { label: "PheniCS", link: "/projects/rockets/phenics" },
+            { label: "Sirius", link: "/projects/rockets/sirius" },
+            { label: "HyMir", link: "/projects/rockets/hymir" },
+          ],
+        },
+        {
+          label: "Websites",
+          subOptions: [
+            { label: "This website", link: "/projects/websites/this" },
+            { label: "Space Section (CACS)", link: "/projects/websites/space-section-cacs" },
           ],
         },
       ],
     },
     {
-      label: "Partenariats",
+      label: "Overthought Games",
+      link: "/overthought-games",
       options: [
-        { label: "Nos Partenaires", link: "/Partenaires" },
-        { label: "Devenir Partenaire", link: "/Devenir-Partenaire" },
+        { label: "Who are we ?", link: "/overthought-games/who-are-we" },
+        { label: "Our Game : Oblitare Mori", link: "/overthought-games/oblitare-mori" },
       ],
+    },
+    {
+      label: "Research",
+      link: "/research",
+      options: [
+        { 
+            label: "Research interests", 
+            subOptions: [
+                { label: "Galaxy clustering", link: "/research/galaxy-clustering" },
+                { label: "Photometric redshifts", link: "/research/photoz" },
+                { label: "Algorithms", link: "/research/algorithms" },
+            ]
+         },
+         {
+            label: "Publications",
+            link: "/research/publications",
+         },
+         {
+            label: "Software",
+            link: "/research/software",
+         },
+         {
+            label: "Experiments",
+            link: "/research/experiments",
+         }
+      ],
+    },
+    {
+      label: "Awards",
+      link: "/awards", 
+    },
+    {
+      label: "Hobbies",
+      options: [
+        { label: "Astrophotography", link: "/hobbies/astrophotography" },
+        { label: "Video games", link: "/hobbies/video-games" },
+      ], 
+    },
+    {
+      label: "About me",
+      link: "/about", 
     },
   ];
 
@@ -81,8 +125,20 @@ const Navbar: React.FC = () => {
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="cursor-pointer text-white">{tab.label}</div>
-              {activeIndex === index && (
+              {tab.link ? (
+                <a
+                  href={tab.link}
+                  className="text-white hover:underline flex items-center gap-1"
+                >
+                  {tab.label}
+                  {tab.options && (
+                    <span>{activeIndex === index ? "▲" : "▼"}</span>
+                  )}
+                </a>
+              ) : (
+                <div className="text-white cursor-pointer">{tab.label}</div>
+              )}
+              {tab.options && activeIndex === index && (
                 <div className="absolute top-full left-0">
                   <DropdownMenu options={tab.options} />
                 </div>
