@@ -84,6 +84,7 @@ const Navbar: React.FC = () => {
       options: [
         { label: "Astrophotography", link: "/hobbies/astrophotography" },
         { label: "Video games", link: "/hobbies/video-games" },
+        { label: "Travels", link: "/hobbies/travelling" },
       ], 
     },
     {
@@ -100,7 +101,7 @@ const Navbar: React.FC = () => {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setActiveIndex(null);
-    }, 300);
+    }, 50);
   };
 
   useEffect(() => {
