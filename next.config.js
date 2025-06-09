@@ -1,11 +1,9 @@
-/** @type {import('next').NextConfig} */
-const isGithubPages = process.env.NODE_ENV === 'production';
-const repoName = 'JeanCHDJdev.github.io';
-
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
   output: 'export',
-  basePath: isGithubPages ? `/${repoName}` : '',
-  assetPrefix: isGithubPages ? `/${repoName}/` : '',
-};
 
-module.exports = nextConfig;
+}
+ 
+module.exports = nextConfig
