@@ -31,9 +31,9 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ options }) => {
     setOpenIndexes((prev) => {
       const next = new Set(prev);
       if (next.has(index)) {
-        next.delete(index); // Collapse on click
+        next.delete(index);
       } else {
-        next.add(index);    // Expand on click
+        next.add(index);
       }
       return next;
     });
