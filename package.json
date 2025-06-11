@@ -1,4 +1,9 @@
 {
+  "homepage": "https://jeanchdjdev.github.io/",
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/JeanCHDJdev/JeanCHDJdev.github.io/"
+  },
   "name": "front",
   "version": "0.1.0",
   "private": true,
@@ -10,12 +15,8 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d out"
   },
-  "homepage": "https://JeanCHDJdev.github.io/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JeanCHDJdev/JeanCHDJdev.github.io"
-  },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.8",
     "dotenv": "^16.3.1",
     "framer-motion": "^10.16.16",
     "lucide-react": "^0.513.0",

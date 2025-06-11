@@ -1,9 +1,10 @@
-/**
- * @type {import('next').NextConfig}
- */
-const nextConfig = {
-  output: 'export',
+// next.config.js
+const isGithubPages = process.env.DEPLOY_ENV === 'GH_PAGES';
 
-}
- 
-module.exports = nextConfig
+const repo = 'JeanCHDJdev.github.io';
+
+module.exports = {
+  output: 'export',
+  basePath: isGithubPages ? `/${repo}` : '',
+  assetPrefix: isGithubPages ? `/${repo}/` : '',
+};
