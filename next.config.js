@@ -5,6 +5,6 @@ const repo = 'JeanCHDJdev.github.io';
 
 module.exports = {
   output: 'export',
-  basePath: isGithubPages ? `/${repo}` : '',
-  assetPrefix: isGithubPages ? `/${repo}/` : '',
+  trailingSlash: true,
+  assetPrefix: '.', 
 };
