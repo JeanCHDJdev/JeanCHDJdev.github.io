@@ -5,6 +5,5 @@ const repo = 'JeanCHDJdev.github.io';
 
 module.exports = {
   output: 'export',
-  trailingSlash: true,
   assetPrefix: '.', 
 };
