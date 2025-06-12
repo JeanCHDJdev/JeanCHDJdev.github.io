@@ -13,7 +13,7 @@ const images = {
 };
 
 const SocialMedia: React.FC<SocialMediaProps> = ({ className = '' }) => {
-  const iconClass = 'w-6 ml-3 invert transition-transform duration-200 hover:scale-110';
+  const iconClass = 'w-6 ml-3 transition-transform duration-200 hover:scale-110';
 
   return (
     <div className={`flex items-center ${className}`}>
@@ -34,4 +34,3 @@ const SocialMedia: React.FC<SocialMediaProps> = ({ className = '' }) => {
 };
 
 export default SocialMedia;
-
