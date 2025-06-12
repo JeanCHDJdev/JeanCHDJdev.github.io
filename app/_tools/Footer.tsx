@@ -2,17 +2,18 @@ import React from 'react';
 import SocialMedia from './SocialMedia';
 
 const Footer: React.FC = () => {
-
   return (
-    <footer style={{ width: '100%', height: '28rem', backgroundColor: 'rgb(0, 0, 50)', borderTop: '0.75rem solid white' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', height: '100%' }}>
+    <footer className="w-full h-[28rem] bg-[rgb(0,0,50)] border-t-[0.75rem] border-white">
+      <div className="flex justify-between items-start h-full">
+        {/* Add more columns or content here if needed */}
+        <div className="flex-2 text-center mx-auto">
+          <p className="text-white mb-4">Socials</p>
+          <SocialMedia className="flex justify-center mb-4" />
         </div>
-        <div style={{ flex: '2', textAlign: 'center' }}>
-          <p style={{ color: 'white', textAlign: 'center', marginBottom: '1rem' }}>Socials</p>
-          <SocialMedia style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}/>
       </div>
     </footer>
   );
 };
 
 export default Footer;
+
