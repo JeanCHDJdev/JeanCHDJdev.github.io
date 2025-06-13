@@ -1,10 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import './_css/buttons.css';
 @import './_css/colors.css';
 @import './_css/images.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
     /* Global colors */
@@ -20,26 +21,11 @@
     font-size: 16px;
 }
 
-@media (min-width: 1200px) 
- {
-    :root
-    {
-        font-size: 14px; 
-    }
- }
 @media (max-width: 1200px) 
  {
-    :root
-    {
-        font-size: 12px; 
-    }
  }
  @media (max-width: 1000px) 
  {
-    :root
-    {
-        font-size: 10px; 
-    }
     .paragraph-content{
       flex-direction: column;
     }

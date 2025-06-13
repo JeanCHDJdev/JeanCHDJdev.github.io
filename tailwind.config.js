@@ -23,6 +23,7 @@ module.exports = {
       sans: ["Inter", "sans-serif"],
       serif: ["Merriweather", "serif"],
       mono: ["Menlo", "monospace"],
+      montserrat: ['Montserrat', 'sans-serif'],
     },
   },
   plugins: [],
