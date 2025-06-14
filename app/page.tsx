@@ -2,6 +2,7 @@ import React from 'react';
 import BackgroundImage from './_tools/_content/BackgroundImage';
 import TextImage from './_tools/_content/TextImage';
 import TextOverlayImage from './_tools/_content/TextOverlayImage';
+import StandardButton from './_tools/_content/Button';
 
 const Page: React.FC = () => {
   return (
@@ -36,6 +37,8 @@ const Page: React.FC = () => {
           imageUrl="/astrophotography/lobster.JPEG"
           imageAlt="Description of your image"
           className="max-w-4xl mx-auto p-6" 
+          imageWidth={60}
+          mobileImageWidth={60}
           children={
             <div className="text-white text-center">
               <h1 className="text-5xl font-bold mb-4">PROJECTS</h1>
@@ -43,13 +46,14 @@ const Page: React.FC = () => {
             </div>
           }
         />
-
       </BackgroundImage>
       <BackgroundImage
         imageUrl="/astrophotography/pickering.JPEG"
         overlay={true}
         heightClass="h-screen"
-      />
+        >
+        <StandardButton/>
+      </BackgroundImage>
     </div>
   );
 };
