@@ -22,35 +22,6 @@ const Navbar: React.FC = () => {
 
   const tabs: Tab[] = [
     {
-      label: "Projects",
-      link: "/projects",
-      options: [
-        {
-          label: "Rockets",
-          subOptions: [
-            { label: "PheniCS", link: "/projects/rockets/phenics" },
-            { label: "Sirius", link: "/projects/rockets/sirius" },
-            { label: "HyMir", link: "/projects/rockets/hymir" },
-          ],
-        },
-        {
-          label: "Websites",
-          subOptions: [
-            { label: "This website", link: "/projects/websites/this" },
-            { label: "Space Section (CACS)", link: "/projects/websites/space-section-cacs" },
-          ],
-        },
-      ],
-    },
-    {
-      label: "Overthought Games",
-      link: "/overthought-games",
-      options: [
-        { label: "Who are we ?", link: "/overthought-games/who-are-we" },
-        { label: "Our Game : Oblitare Mori", link: "/overthought-games/oblitare-mori" },
-      ],
-    },
-    {
       label: "Research",
       link: "/research",
       options: [
@@ -74,6 +45,42 @@ const Navbar: React.FC = () => {
             label: "Experiments",
             link: "/research/experiments",
          }
+      ],
+    },
+    {
+      label: "Projects",
+      link: "/projects",
+      options: [
+        {
+          label: "Rockets",
+          subOptions: [
+            { label: "PheniCS", link: "/projects/rockets/phenics" },
+            { label: "Sirius", link: "/projects/rockets/sirius" },
+            { label: "HyMir", link: "/projects/rockets/hymir" },
+          ],
+        },
+        {
+          label: "Websites",
+          subOptions: [
+            { label: "This website", link: "/projects/websites/this" },
+            { label: "Space Section (CACS)", link: "/projects/websites/space-section-cacs" },
+          ],
+        },
+        {
+          label: "Others",
+          subOptions: [
+            { label: "Homemade foundry", link: "/projects/others/homemade-foundry" },
+            { label: "Gamejam games", link: "/projects/others/gamejam-games" },
+          ],
+        },
+      ],
+    },
+    {
+      label: "Overthought Games",
+      link: "/overthought-games",
+      options: [
+        { label: "Who are we ?", link: "/overthought-games/who-are-we" },
+        { label: "Our Game : Oblitare Mori", link: "/overthought-games/oblitare-mori" },
       ],
     },
     {
