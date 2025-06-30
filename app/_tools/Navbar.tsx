@@ -185,14 +185,14 @@ const Navbar: React.FC = () => {
 
         {/* Hamburger Button */}
         <button
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-white focus:outline-none p-2"
           onClick={toggleMobileMenu}
           aria-label="Toggle mobile menu"
         >
-          <div className="space-y-1">
-            <div className={`w-6 h-0.5 bg-white transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
-            <div className={`w-6 h-0.5 bg-white transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></div>
-            <div className={`w-6 h-0.5 bg-white transition-transform duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
+          <div className="space-y-2">
+            <div className={`w-10 h-1 bg-white transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-3' : ''}`}></div>
+            <div className={`w-10 h-1 bg-white transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></div>
+            <div className={`w-10 h-1 bg-white transition-transform duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-3' : ''}`}></div>
           </div>
         </button>
       </div>
@@ -215,7 +215,7 @@ const Navbar: React.FC = () => {
                   {tab.link ? (
                     <a
                       href={tab.link}
-                      className="text-white hover:text-space5 transition-colors duration-200 py-3 flex-1 text-xl font-medium"
+                      className="text-white hover:text-space5 transition-colors duration-200 py-3 flex-1 text-3xl font-medium"
                       onClick={() => {
                         if (!tab.options) {
                           setIsMobileMenuOpen(false);
@@ -225,12 +225,12 @@ const Navbar: React.FC = () => {
                       {tab.label}
                     </a>
                   ) : (
-                    <span className="text-white py-3 flex-1 text-xl font-medium">{tab.label}</span>
+                    <span className="text-white py-3 flex-1 text-3xl font-medium">{tab.label}</span>
                   )}
                   
                   {tab.options && (
                     <button
-                      className="text-white p-2 ml-2 text-xl"
+                      className="text-white p-2 ml-2 text-3xl"
                       onClick={() => handleMobileClick(index)}
                       aria-label={`Toggle ${tab.label} submenu`}
                     >

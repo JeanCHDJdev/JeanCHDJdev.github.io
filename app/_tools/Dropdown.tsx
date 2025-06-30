@@ -45,7 +45,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ options }) => {
 
   return (
     <ul
-      className="bg-space2 text-white shadow-2xl drop-shadow-2xl rounded w-full p-2 md:text-md text-xl border border-space4"
+      className="bg-space2 text-white shadow-2xl drop-shadow-2xl rounded w-full p-2 text-3xl md:text-base border border-space4"
       style={{ 
         boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 10px 20px -5px rgba(0, 0, 0, 0.6)' 
       }}
@@ -65,17 +65,17 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ options }) => {
               {option.link ? (
                 <Link
                   href={option.link}
-                  className="hover:text-space5 transition-colors duration-200 text-base md:text-md font-medium"
+                  className="hover:text-space5 transition-colors duration-200 text-3xl md:text-base font-medium"
                 >
                   {option.label}
                 </Link>
               ) : (
-                <span className="text-white text-base md:text-md font-medium">{option.label}</span>
+                <span className="text-white text-3xl md:text-base font-medium">{option.label}</span>
               )}
 
               {hasSub && (
                 <span
-                  className="cursor-pointer text-space5 ml-2 text-2xl md:text-sm"
+                  className="cursor-pointer text-space5 ml-2 text-3xl md:text-sm"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleClick(i);
@@ -100,7 +100,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ options }) => {
                   >
                     <Link 
                       href={sub.link || "#"}
-                      className="text-base md:text-md font-large block"
+                      className="text-3xl md:text-base font-large block"
                     >
                       {sub.label}
                     </Link>
