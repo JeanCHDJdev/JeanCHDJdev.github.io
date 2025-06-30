@@ -45,7 +45,10 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ options }) => {
 
   return (
     <ul
-      className="bg-space2 text-white shadow-2xl rounded w-full p-2 md:text-md text-xl"
+      className="bg-space2 text-white shadow-2xl drop-shadow-2xl rounded w-full p-2 md:text-md text-xl border border-space4"
+      style={{ 
+        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 10px 20px -5px rgba(0, 0, 0, 0.6)' 
+      }}
       onMouseLeave={handleMouseLeave}
     >
       {options.map((option, i) => {
@@ -84,15 +87,20 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ options }) => {
             </div>
 
             {hasSub && isOpen && (
-              <ul className="mt-2 bg-space2 rounded shadow-2xl">
+              <ul 
+                className="mt-2 bg-space2 rounded border border-space4"
+                style={{ 
+                  boxShadow: '0 20px 40px -8px rgba(0, 0, 0, 0.8), 0 8px 16px -4px rgba(0, 0, 0, 0.6)' 
+                }}
+              >
                 {option.subOptions!.map((sub, j) => (
                   <li
                     key={j}
-                    className="px-3 py-3 md:py-2 hover:text-space5 transition-colors duration-200"
+                    className="px-3 py-3 md:py-2 hover:text-space5 transition-colors duration-200 whitespace-nowrap"
                   >
                     <Link 
                       href={sub.link || "#"}
-                      className="text-base md:text-md font-large"
+                      className="text-base md:text-md font-large block"
                     >
                       {sub.label}
                     </Link>
