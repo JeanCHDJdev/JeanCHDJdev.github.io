@@ -60,15 +60,9 @@ const Navbar: React.FC = () => {
           ],
         },
         {
-          label: "Websites",
-          subOptions: [
-            { label: "This website", link: "/projects/websites/this" },
-            { label: "Space Section (CACS)", link: "/projects/websites/space-section-cacs" },
-          ],
-        },
-        {
           label: "Others",
           subOptions: [
+            { label : "Websites", link: "/projects/others/websites" },
             { label: "Homemade foundry", link: "/projects/others/homemade-foundry" },
             { label: "Gamejam games", link: "/projects/others/gamejam-games" },
           ],
